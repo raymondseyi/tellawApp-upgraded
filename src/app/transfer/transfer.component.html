@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<div class="container-fluid ">
+  <div class="row ">
+    <div class="col-7 mx-auto shadow my-3 py-4">
+        
+        <h3 class="text-center my-4">Transfer</h3>
+        <div class='row mx-auto'>
+            <div (click)="enterTransferAmount(1000)" class='gradForRequests col-2 bg-secondary text-light py-2 text-center shadow-3 my-2 btn ' ><h5>1000</h5></div>
+            <div (click)="enterTransferAmount(5000)" class='gradForRequests col-2 bg-secondary text-light py-2 text-center shadow-3 my-2 mx-2 btn' ><h5>5000</h5></div>
+            <div (click)="enterTransferAmount(10000)" class='gradForRequests col-2 bg-secondary text-light py-2 text-center shadow-3 my-2 mx-2 btn ' ><h5>10000</h5></div>
+            <div (click)="enterTransferAmount(100000)" class='gradForRequests col-2 bg-secondary text-light py-2 text-center shadow-3 my-2 mx-2 btn ' ><h5>100000</h5></div>
+            
+        </div>
+      <input
+        class="form-control my-2"
+        type="text"
+        placeholder="Enter Account Number"
+        [(ngModel)]="accountNumberEntered"
+        (keyup)="checkAccountNumber()"
+      />
+      <p *ngIf="accountNumberReport == 1"><input class="form-control" type="text" disabled [value]="transferPartnerAccountName">
+    </p>
+      <div>
+        <input
+          class="form-control my-2"
+          type="number"
+          placeholder="Enter Amount"
+          [(ngModel)]="transferAmount"
+        />
+        <input
+          class="form-control p-4 my-2"
+          type="text"
+          placeholder="Description"
+          [(ngModel)]="transferDescription"
+        />
+      </div>
+      <button
+        *ngIf="accountNumberReport == 1"
+        (click)="transferFund()"
+        class="btn btn-success my-2 w-100"
+      >
+        Transfer
+      </button>
+      <button (click)="canceltransferFund()" class="btn btn-danger w-100">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- <div className='container'>
+    <div className='row mx-auto'>
+        <div className='col-2 bg-secondary text-light py-2 text-center shadow-3 my-2 mx-2 btn hover' ><h5>1000</h5></div>
+        <div className='col-2 bg-secondary text-light py-2 text-center shadow-3 my-2 mx-2 btn hover' ><h5>5000</h5></div>
+        <div className='col-2 bg-secondary text-light py-2 text-center shadow-3 my-2 mx-2 btn hover' ><h5>10000</h5></div>
+        <div className='col-2 bg-secondary text-light py-2 text-center shadow-3 my-2 mx-2 btn hover' ><h5>100000</h5></div>
+        
+    </div>
+</div>
+
+<div className='container'>
+    <div className='row mx-auto'>
+        <input className='form-control my-2 w-75' type="text" placeholder="Amount" onChange={handleAmount} value={amount}/>
+        <input className='form-control my-2  w-75' type="text" placeholder="Account Number" onChange={confirmAccount} maxLength='10' />
+        <input className='form-control my-2  w-75' type="text" placeholder="Account Name" value={accountName} disabled/>
+        <input className='form-control my-2 w-75' type="password" placeholder="Enter your 4-digit Pin" onChange={handlePin} maxLength='4'/> 
+        <textarea className='form-control my-2 w-75' type="text" placeholder="Description (optional)">
+        <button className="btn btn-success btn-block  w-75"  onClick={makeTransaction}>Make Transaction</button>
+    </div>
+</div> -->
